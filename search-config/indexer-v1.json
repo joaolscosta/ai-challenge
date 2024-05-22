@@ -1,0 +1,54 @@
+{
+    "@odata.context": "https://srch-avms-westeu-001.search.windows.net/$metadata#indexers/$entity",
+    "@odata.etag": "\"0x8DC78E6484C49F6\"",
+    "name": "nos-v1-indexer",
+    "description": null,
+    "dataSourceName": "nos-v1-datasource",
+    "skillsetName": "nos-skillset",
+    "targetIndexName": "nos-v1",
+    "disabled": null,
+    "schedule": null,
+    "parameters": {
+      "batchSize": null,
+      "maxFailedItems": null,
+      "maxFailedItemsPerBatch": null,
+      "base64EncodeKeys": null,
+      "configuration": {
+        "dataToExtract": "contentAndMetadata",
+        "parsingMode": "delimitedText",
+        "delimitedTextDelimiter": ";",
+        "firstLineContainsHeaders": true
+      }
+    },
+    "fieldMappings": [
+      {
+        "sourceFieldName": "metadata_storage_name",
+        "targetFieldName": "title",
+        "mappingFunction": null
+      }
+    ],
+    "outputFieldMappings": [
+      {
+        "sourceFieldName": "/document/PersonName",
+        "targetFieldName": "PersonName"
+      },
+      {
+        "sourceFieldName": "/document/RoleName",
+        "targetFieldName": "JobTitle"
+      },
+      {
+        "sourceFieldName": "/document/TimeOfDay",
+        "targetFieldName": "TimeOfDay"
+      },
+      {
+        "sourceFieldName": "/document/Content",
+        "targetFieldName": "chunk"
+      },
+      {
+        "sourceFieldName": "/document/vector",
+        "targetFieldName": "vector"
+      }
+    ],
+    "cache": null,
+    "encryptionKey": null
+  }

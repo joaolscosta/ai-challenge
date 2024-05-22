@@ -1,0 +1,36 @@
+{
+    "@odata.context": "https://<search-service>.search.windows.net/$metadata#skillsets/$entity",
+    "@odata.etag": "\"0x8DC78E637DF4AAE\"",
+    "name": "nos-skillset",
+    "description": "Skillset to chunk documents and generate embeddings",
+    "skills": [
+      {
+        "@odata.type": "#Microsoft.Skills.Text.AzureOpenAIEmbeddingSkill",
+        "name": "#1",
+        "description": null,
+        "context": "/document",
+        "resourceUri": "https://<openai-service>.openai.azure.com",
+        "apiKey": "<redacted>",
+        "deploymentId": "text-embedding-ada-002",
+        "dimensions": null,
+        "modelName": null,
+        "inputs": [
+          {
+            "name": "text",
+            "source": "/document/Content"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "embedding",
+            "targetName": "vector"
+          }
+        ],
+        "authIdentity": null
+      }
+    ],
+    "cognitiveServices": null,
+    "knowledgeStore": null,
+    "indexProjections": null,
+    "encryptionKey": null
+  }

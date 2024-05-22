@@ -1,0 +1,249 @@
+{
+    "@odata.context": "https://srch-avms-westeu-001.search.windows.net/$metadata#indexes/$entity",
+    "@odata.etag": "\"0x8DC78BD2C0A6E09\"",
+    "name": "nos-v1",
+    "defaultScoringProfile": null,
+    "fields": [
+      {
+        "name": "chunk_id",
+        "type": "Edm.String",
+        "searchable": true,
+        "filterable": true,
+        "retrievable": true,
+        "stored": true,
+        "sortable": true,
+        "facetable": true,
+        "key": true,
+        "indexAnalyzer": null,
+        "searchAnalyzer": null,
+        "analyzer": "keyword",
+        "normalizer": null,
+        "dimensions": null,
+        "vectorSearchProfile": null,
+        "vectorEncoding": null,
+        "synonymMaps": []
+      },
+      {
+        "name": "parent_id",
+        "type": "Edm.String",
+        "searchable": true,
+        "filterable": true,
+        "retrievable": true,
+        "stored": true,
+        "sortable": true,
+        "facetable": true,
+        "key": false,
+        "indexAnalyzer": null,
+        "searchAnalyzer": null,
+        "analyzer": null,
+        "normalizer": null,
+        "dimensions": null,
+        "vectorSearchProfile": null,
+        "vectorEncoding": null,
+        "synonymMaps": []
+      },
+      {
+        "name": "chunk",
+        "type": "Edm.String",
+        "searchable": true,
+        "filterable": false,
+        "retrievable": true,
+        "stored": true,
+        "sortable": false,
+        "facetable": false,
+        "key": false,
+        "indexAnalyzer": null,
+        "searchAnalyzer": null,
+        "analyzer": null,
+        "normalizer": null,
+        "dimensions": null,
+        "vectorSearchProfile": null,
+        "vectorEncoding": null,
+        "synonymMaps": []
+      },
+      {
+        "name": "title",
+        "type": "Edm.String",
+        "searchable": true,
+        "filterable": true,
+        "retrievable": true,
+        "stored": true,
+        "sortable": false,
+        "facetable": false,
+        "key": false,
+        "indexAnalyzer": null,
+        "searchAnalyzer": null,
+        "analyzer": null,
+        "normalizer": null,
+        "dimensions": null,
+        "vectorSearchProfile": null,
+        "vectorEncoding": null,
+        "synonymMaps": []
+      },
+      {
+        "name": "vector",
+        "type": "Collection(Edm.Single)",
+        "searchable": true,
+        "filterable": false,
+        "retrievable": true,
+        "stored": true,
+        "sortable": false,
+        "facetable": false,
+        "key": false,
+        "indexAnalyzer": null,
+        "searchAnalyzer": null,
+        "analyzer": null,
+        "normalizer": null,
+        "dimensions": 1536,
+        "vectorSearchProfile": "nos-v1-profile",
+        "vectorEncoding": null,
+        "synonymMaps": []
+      },
+      {
+        "name": "PersonName",
+        "type": "Edm.String",
+        "searchable": true,
+        "filterable": true,
+        "retrievable": true,
+        "stored": true,
+        "sortable": false,
+        "facetable": true,
+        "key": false,
+        "indexAnalyzer": null,
+        "searchAnalyzer": null,
+        "analyzer": "standard.lucene",
+        "normalizer": null,
+        "dimensions": null,
+        "vectorSearchProfile": null,
+        "vectorEncoding": null,
+        "synonymMaps": []
+      },
+      {
+        "name": "JobTitle",
+        "type": "Edm.String",
+        "searchable": true,
+        "filterable": true,
+        "retrievable": true,
+        "stored": true,
+        "sortable": false,
+        "facetable": true,
+        "key": false,
+        "indexAnalyzer": null,
+        "searchAnalyzer": null,
+        "analyzer": "standard.lucene",
+        "normalizer": null,
+        "dimensions": null,
+        "vectorSearchProfile": null,
+        "vectorEncoding": null,
+        "synonymMaps": []
+      },
+      {
+        "name": "TimeOfDay",
+        "type": "Edm.String",
+        "searchable": true,
+        "filterable": true,
+        "retrievable": true,
+        "stored": true,
+        "sortable": true,
+        "facetable": true,
+        "key": false,
+        "indexAnalyzer": null,
+        "searchAnalyzer": null,
+        "analyzer": "standard.lucene",
+        "normalizer": null,
+        "dimensions": null,
+        "vectorSearchProfile": null,
+        "vectorEncoding": null,
+        "synonymMaps": []
+      }
+    ],
+    "scoringProfiles": [],
+    "corsOptions": null,
+    "suggesters": [],
+    "analyzers": [],
+    "normalizers": [],
+    "tokenizers": [],
+    "tokenFilters": [],
+    "charFilters": [],
+    "encryptionKey": null,
+    "similarity": {
+      "@odata.type": "#Microsoft.Azure.Search.BM25Similarity",
+      "k1": null,
+      "b": null
+    },
+    "semantic": {
+      "defaultConfiguration": null,
+      "configurations": [
+        {
+          "name": "nos-v1-semantic-configuration",
+          "prioritizedFields": {
+            "titleField": {
+              "fieldName": "PersonName"
+            },
+            "prioritizedContentFields": [
+              {
+                "fieldName": "chunk"
+              },
+              {
+                "fieldName": "PersonName"
+              },
+              {
+                "fieldName": "TimeOfDay"
+              }
+            ],
+            "prioritizedKeywordsFields": [
+              {
+                "fieldName": "PersonName"
+              },
+              {
+                "fieldName": "JobTitle"
+              },
+              {
+                "fieldName": "TimeOfDay"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "vectorSearch": {
+      "algorithms": [
+        {
+          "name": "nos-v1-algorithm",
+          "kind": "hnsw",
+          "hnswParameters": {
+            "metric": "cosine",
+            "m": 4,
+            "efConstruction": 400,
+            "efSearch": 500
+          },
+          "exhaustiveKnnParameters": null
+        }
+      ],
+      "profiles": [
+        {
+          "name": "nos-v1-profile",
+          "algorithm": "nos-v1-algorithm",
+          "vectorizer": "nos-v1-vectorizer",
+          "compression": null
+        }
+      ],
+      "vectorizers": [
+        {
+          "name": "nos-v1-vectorizer",
+          "kind": "azureOpenAI",
+          "azureOpenAIParameters": {
+            "resourceUri": "https://<openai service>.openai.azure.com",
+            "deploymentId": "text-embedding-ada-002",
+            "apiKey": "<redacted>",
+            "modelName": null,
+            "authIdentity": null
+          },
+          "customWebApiParameters": null,
+          "aiServicesVisionParameters": null,
+          "amlParameters": null
+        }
+      ],
+      "compressions": []
+    }
+  }
