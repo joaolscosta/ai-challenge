@@ -63,3 +63,5 @@ In the right section, you can:
 - [ ] Access you Hub and the Project for you team
 - [ ] Explore the Chat Playground
 - [ ] Ask: "What is Fabio's dog's name?" and save the response.
+
+Done? [Next Lesson](/guidance/guidance-lesson2.md)
